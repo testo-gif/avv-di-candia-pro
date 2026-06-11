@@ -1,0 +1,59 @@
+"use client";
+import { motion } from "framer-motion";
+import AnimateIn from "./AnimateIn";
+
+const team = [
+  { name: "Avv. Giacomo Di Candia", title: "Titolare", desc: "Avvocato iscritto all'Ordine di Bologna. Segue personalmente ogni cliente dalla prima consulenza fino alla risoluzione definitiva del caso." },
+  { name: "Dott.ssa Giulia Marchetti", title: "Collaboratore", desc: "Specializzata in contrattualistica commerciale e recupero crediti. Supporta i clienti aziendali nella gestione dei rapporti contrattuali." },
+  { name: "Dott. Andrea Russo", title: "Praticante", desc: "Praticante avvocato con focus su diritto civile. Supporta lo studio nella ricerca giurisprudenziale e nella gestione documentale." },
+];
+
+const PersonIcon = () => (
+  <svg className="w-12 h-12 opacity-[0.12] text-[var(--gold)]" viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="1.2">
+    <circle cx="25" cy="18" r="10" />
+    <path d="M6 44c0-10.5 8.5-19 19-19s19 8.5 19 19" />
+  </svg>
+);
+
+export default function Team() {
+  return (
+    <section id="team" className="py-28 px-6 bg-[var(--dark-2)] border-t border-white/[0.04]">
+      <div className="max-w-[1200px] mx-auto">
+        <div className="text-center max-w-lg mx-auto mb-16">
+          <AnimateIn>
+            <div className="flex items-center justify-center gap-3 text-[0.72rem] tracking-[0.25em] uppercase text-[var(--gold)] mb-5">
+              Il Team
+              <span className="w-14 h-px bg-[var(--gold)] opacity-40" />
+            </div>
+          </AnimateIn>
+          <AnimateIn delay={0.1}>
+            <h2 className="font-garamond text-[clamp(2rem,4vw,3.2rem)] font-normal text-[var(--cream)] leading-[1.15]">
+              Professionisti al<br /><em className="italic text-[var(--gold)]">tuo fianco</em>
+            </h2>
+          </AnimateIn>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {team.map((m, i) => (
+            <AnimateIn key={m.name} delay={i * 0.12}>
+              <motion.div
+                whileHover={{ y: -6, borderColor: "rgba(202,138,4,0.35)" }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="bg-[var(--dark)] border border-white/[0.06] overflow-hidden h-full"
+              >
+                <div className="w-full bg-[var(--dark-3)] flex items-center justify-center" style={{ aspectRatio: "4/3" }}>
+                  <PersonIcon />
+                </div>
+                <div className="p-6">
+                  <div className="text-[0.72rem] tracking-[0.1em] uppercase text-[var(--gold)] mb-2">{m.title}</div>
+                  <div className="font-garamond text-[1.3rem] font-medium text-[var(--cream)] mb-3">{m.name}</div>
+                  <p className="text-[0.85rem] text-[var(--stone)] leading-[1.6]">{m.desc}</p>
+                </div>
+              </motion.div>
+            </AnimateIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
