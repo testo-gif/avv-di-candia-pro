@@ -1,17 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #050A18;
-  --foreground: #F0F4FF;
-  --gold: #3B82F6;
-  --gold-light: #60A5FA;
-  --dark: #050A18;
-  --dark-2: #0A1628;
-  --dark-3: #0F1F3D;
-  --stone: #64748B;
-  --stone-light: #94A3B8;
-  --cream: #F0F4FF;
+  --background: #F8F6F2;
+  --foreground: #1A1A2E;
+  --gold: #B8955A;
+  --gold-light: #D4AF7A;
+  --gold-dark: #8B6B3D;
+  --dark: #1A1A2E;
+  --dark-2: #252540;
+  --dark-3: #12121E;
+  --stone: #9A9080;
+  --stone-light: #6B6258;
+  --cream: #F8F6F2;
+  --cream-2: #F0EDE6;
+  --cream-3: #E8E2D8;
+  --border: rgba(184,149,90,0.2);
 }
 
 @theme inline {
@@ -22,9 +26,9 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--dark);
-  color: var(--cream);
-  font-family: 'Lato', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
 

@@ -75,44 +75,47 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-28 px-6 bg-[var(--dark)]">
+    <section id="services" className="py-28 px-6" style={{ background: "var(--cream)" }}>
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center max-w-xl mx-auto mb-16">
           <AnimateIn>
-            <div className="flex items-center justify-center gap-3 text-[0.72rem] tracking-[0.25em] uppercase text-[var(--gold)] mb-5">
+            <div className="flex items-center justify-center gap-3 text-[0.72rem] tracking-[0.25em] uppercase mb-5" style={{ color: "var(--gold-dark)" }}>
               Aree di Pratica
-              <span className="w-14 h-px bg-[var(--gold)] opacity-40" />
+              <span className="w-14 h-px" style={{ background: "var(--gold)", opacity: 0.5 }} />
             </div>
           </AnimateIn>
           <AnimateIn delay={0.1}>
-            <h2 className="font-garamond text-[clamp(2rem,4vw,3.2rem)] font-normal text-[var(--cream)] leading-[1.15]">
+            <h2 className="font-garamond text-[clamp(2rem,4vw,3.2rem)] font-normal leading-[1.15]" style={{ color: "var(--dark)" }}>
               Competenza specializzata<br />
-              <em className="italic text-[var(--gold)]">in sei settori chiave</em>
+              <em className="italic" style={{ color: "var(--gold)" }}>in sei settori chiave</em>
             </h2>
           </AnimateIn>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.04]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "var(--cream-3)" }}>
           {services.map((s, i) => (
             <AnimateIn key={s.title} delay={i * 0.08}>
               <motion.div
-                whileHover={{ backgroundColor: "var(--dark-2)", borderColor: "rgba(202,138,4,0.3)" }}
-                className="relative p-10 bg-[var(--dark)] border border-transparent overflow-hidden group cursor-pointer h-full"
+                whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(184,149,90,0.12)" }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative p-10 overflow-hidden group cursor-pointer h-full"
+                style={{ background: "var(--cream)" }}
               >
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   className="absolute inset-0 pointer-events-none"
-                  style={{ background: "linear-gradient(135deg, rgba(202,138,4,0.06), transparent)" }}
+                  style={{ background: "linear-gradient(135deg, rgba(184,149,90,0.04), transparent)" }}
                 />
-                <div className="mb-6">{s.icon}</div>
-                <h3 className="font-garamond text-[1.4rem] font-medium text-[var(--cream)] mb-3">{s.title}</h3>
-                <p className="text-[0.9rem] text-[var(--stone)] leading-[1.7]">{s.desc}</p>
+                <div className="mb-6" style={{ color: "var(--gold)" }}>{s.icon}</div>
+                <h3 className="font-garamond text-[1.4rem] font-medium mb-3" style={{ color: "var(--dark)" }}>{s.title}</h3>
+                <p className="text-[0.9rem] leading-[1.7]" style={{ color: "var(--stone)" }}>{s.desc}</p>
                 <motion.div
-                  initial={{ opacity: 0, x: -6 }}
-                  whileHover={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute bottom-6 right-6 text-[var(--gold)]"
+                  className="absolute bottom-6 right-6"
+                  style={{ color: "var(--gold)" }}
                 >
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 10h12M12 6l4 4-4 4" /></svg>
                 </motion.div>

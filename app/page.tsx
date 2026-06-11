@@ -2,6 +2,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Services from "./components/Services";
+import VideoBanner from "./components/VideoBanner";
 import Testimonials from "./components/Testimonials";
 import Faq from "./components/Faq";
 import Team from "./components/Team";
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
+      <VideoBanner />
       <Testimonials />
       <Faq />
       <Team />

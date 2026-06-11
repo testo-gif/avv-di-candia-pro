@@ -30,14 +30,16 @@ export default function Nav() {
         style={{
           width: "calc(100% - 3rem)",
           maxWidth: 1200,
-          background: scrolled ? "rgba(12,10,9,0.97)" : "rgba(12,10,9,0.75)",
+          background: scrolled ? "rgba(248,246,242,0.98)" : "rgba(248,246,242,0.85)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          transition: "background 0.3s",
+          transition: "background 0.3s, box-shadow 0.3s",
+          boxShadow: scrolled ? "0 4px 30px rgba(26,26,46,0.08)" : "none",
+          border: "1px solid rgba(184,149,90,0.15)",
         }}
       >
-        <a href="#" className="font-garamond text-[1.1rem] tracking-wide text-[var(--cream)]">
-          Avv. <span className="text-[var(--gold)]">Di Candia</span>
+        <a href="#" className="font-garamond text-[1.1rem] tracking-wide" style={{ color: "var(--dark)" }}>
+          Avv. <span style={{ color: "var(--gold)" }}>Di Candia</span>
         </a>
 
         <ul className="hidden md:flex gap-10 list-none">
@@ -45,7 +47,10 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-[0.78rem] tracking-[0.12em] uppercase text-[var(--stone-light)] hover:text-[var(--gold)] transition-colors duration-200"
+                className="text-[0.75rem] tracking-[0.12em] uppercase transition-colors duration-200 hover:opacity-100"
+                style={{ color: "var(--stone-light)" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "var(--gold)")}
+                onMouseLeave={e => (e.currentTarget.style.color = "var(--stone-light)")}
               >
                 {l.label}
               </a>
@@ -55,7 +60,8 @@ export default function Nav() {
 
         <a
           href="#contact"
-          className="hidden md:inline-block text-[0.78rem] font-bold tracking-[0.1em] uppercase bg-[var(--gold)] text-[var(--dark)] px-5 py-2.5 hover:bg-[var(--gold-light)] transition-all duration-200 hover:-translate-y-px cursor-pointer"
+          className="hidden md:inline-block text-[0.75rem] font-semibold tracking-[0.1em] uppercase px-5 py-2.5 cursor-pointer transition-all duration-200 hover:-translate-y-px"
+          style={{ background: "var(--dark)", color: "var(--cream)" }}
         >
           Consulenza Gratuita
         </a>
@@ -79,7 +85,8 @@ export default function Nav() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed top-24 left-6 right-6 z-40 bg-[var(--dark-2)] border border-[rgba(202,138,4,0.2)] p-6 flex flex-col gap-4"
+            className="fixed top-24 left-6 right-6 z-40 p-6 flex flex-col gap-4 shadow-xl"
+          style={{ background: "var(--cream)", border: "1px solid var(--border)" }}
           >
             {links.map((l) => (
               <a

@@ -15,30 +15,31 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-28 px-6 bg-[var(--dark)]">
+    <section id="faq" className="py-28 px-6" style={{ background: "var(--cream-2)" }}>
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24 items-start">
 
         <div className="lg:sticky lg:top-32">
           <AnimateIn>
-            <div className="flex items-center gap-3 text-[0.72rem] tracking-[0.25em] uppercase text-[var(--gold)] mb-5">
+            <div className="flex items-center gap-3 text-[0.72rem] tracking-[0.25em] uppercase mb-5" style={{ color: "var(--gold-dark)" }}>
               FAQ
-              <span className="w-14 h-px bg-[var(--gold)] opacity-40" />
+              <span className="w-14 h-px" style={{ background: "var(--gold)", opacity: 0.5 }} />
             </div>
           </AnimateIn>
           <AnimateIn delay={0.1}>
-            <h2 className="font-garamond text-[clamp(2rem,4vw,3.2rem)] font-normal text-[var(--cream)] leading-[1.15] mb-4">
-              Domande<br /><em className="italic text-[var(--gold)]">frequenti</em>
+            <h2 className="font-garamond text-[clamp(2rem,4vw,3.2rem)] font-normal leading-[1.15] mb-4" style={{ color: "var(--dark)" }}>
+              Domande<br /><em className="italic" style={{ color: "var(--gold)" }}>frequenti</em>
             </h2>
           </AnimateIn>
           <AnimateIn delay={0.2}>
-            <p className="text-[0.93rem] text-[var(--stone)] leading-[1.8] mb-8">Hai altri dubbi? La prima consulenza è gratuita e senza impegno.</p>
+            <p className="text-[0.93rem] leading-[1.8] mb-8" style={{ color: "var(--stone)" }}>Hai altri dubbi? La prima consulenza è gratuita e senza impegno.</p>
           </AnimateIn>
           <AnimateIn delay={0.3}>
             <motion.a
               href="#contact"
-              whileHover={{ y: -2, boxShadow: "0 8px 28px rgba(202,138,4,0.3)" }}
+              whileHover={{ y: -2, boxShadow: "0 8px 28px rgba(184,149,90,0.3)" }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 bg-[var(--gold)] text-[var(--dark)] text-[0.8rem] font-bold tracking-[0.12em] uppercase px-7 py-4 cursor-pointer"
+              className="inline-flex items-center gap-2 text-[0.8rem] font-bold tracking-[0.12em] uppercase px-7 py-4 cursor-pointer"
+              style={{ background: "var(--dark)", color: "var(--cream)" }}
             >
               Contattaci
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
@@ -49,14 +50,15 @@ export default function Faq() {
         <div className="lg:col-span-2">
           {faqs.map((f, i) => (
             <AnimateIn key={f.q} delay={i * 0.07}>
-              <div className="border-t border-white/[0.06] last:border-b last:border-white/[0.06]">
+              <div style={{ borderTop: "1px solid var(--cream-3)" }} className="last:border-b-[1px]" >
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="w-full flex items-center justify-between py-6 text-left font-garamond text-[1.15rem] text-[var(--cream)] hover:text-[var(--gold)] transition-colors duration-200 gap-4 cursor-pointer bg-transparent border-none"
+                  className="w-full flex items-center justify-between py-6 text-left font-garamond text-[1.15rem] transition-colors duration-200 gap-4 cursor-pointer bg-transparent border-none"
+                  style={{ color: open === i ? "var(--gold)" : "var(--dark)" }}
                 >
                   {f.q}
                   <motion.div animate={{ rotate: open === i ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                    <svg className="w-[18px] h-[18px] text-[var(--gold)] flex-shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6l5 5 5-5" /></svg>
+                    <svg className="w-[18px] h-[18px] flex-shrink-0" style={{ color: "var(--gold)" }} viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6l5 5 5-5" /></svg>
                   </motion.div>
                 </button>
                 <AnimatePresence initial={false}>
@@ -69,7 +71,7 @@ export default function Faq() {
                       transition={{ duration: 0.35, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-6 text-[0.93rem] text-[var(--stone-light)] leading-[1.8]">{f.a}</p>
+                      <p className="pb-6 text-[0.93rem] leading-[1.8]" style={{ color: "var(--stone-light)" }}>{f.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
